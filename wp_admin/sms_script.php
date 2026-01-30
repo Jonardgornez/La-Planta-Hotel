@@ -1,0 +1,3 @@
+<?php
+$NOTFICATION_SMS ="";
+?>
