@@ -2,7 +2,7 @@
     <div class="container py-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
             <h4 class="text-primary">Features</h4>
-            <h1 class="display-5 mb-4">Features Cottage</h1>
+            <h1 class="display-5 mb-4">Features Rooms</h1>
         </div>
         <div class="row g-4">
             <?php 

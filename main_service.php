@@ -2,7 +2,9 @@
             <div class="container service-section py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Our Service</h4>
+                    <
                     <h1 class="display-5 text-white mb-4">Explore <?php print $SYS_NAME;?> service</h1>
+                    <!-- <p style="color:#fff">La Planta Hotel and Restaurant offers comfortable accommodations, a relaxing swimming pool, and a farm-to-table dining experience featuring authentic Negrense cuisine. Our services also include refreshing beverages, warm and attentive hospitality, and assistance with local activities such as island visits and whale and dolphin watching, ensuring a pleasant and memorable stay for every guest.</p> -->
 					<?php
                     $sql = "SELECT * FROM tbl_services ORDER BY SERVICE_ID DESC LIMIT 1";
                     $sql=$conn->prepare($sql);
@@ -38,56 +40,7 @@
                            <?php } endif;?>
                         </div>
                     </div>
-                    <!----<div class="col-0 col-md-1 col-lg-2 col-xl-2"></div>---->
-
-                    <!--<div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="service-item p-4">
-                            <div class="service-content">
-                                <div class="mb-4">
-                                    <i class="fas fa-home fa-4x"></i>
-                                </div>
-                                <a href="#" class="h4 d-inline-block mb-3">Private Gazebo</a>
-                                <p class="mb-0">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="service-item p-4">
-                            <div class="service-content">
-                                <div class="mb-4">
-                                    <i class="fas fa-utensils fa-4x"></i>
-                                </div>
-                                <a href="#" class="h4 d-inline-block mb-3">Delicious Food</a>
-                                <p class="mb-0">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="service-item p-4">
-                            <div class="service-content">
-                                <div class="mb-4">
-                                    <i class="fas fa-door-closed fa-4x"></i>
-                                </div>
-                                <a href="#" class="h4 d-inline-block mb-3">Safety Lockers</a>
-                                <p class="mb-0">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
-                        <div class="service-item p-4">
-                            <div class="service-content">
-                                <div class="mb-4">
-                                    <i class="fas fa-swimming-pool fa-4x"></i>
-                                </div>
-                                <a href="#" class="h4 d-inline-block mb-3">River Rides</a>
-                                <p class="mb-0">
-                                </p>
-                            </div>
-                        </div>
-                    </div>-->
+                    
                 </div>
             </div>
         </div>

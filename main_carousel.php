@@ -8,7 +8,7 @@
                             <div class="col-xl-7 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
                                 <div class="text-start">
                                     <h4 class="text-primary text-uppercase fw-bold mb-4">Welcome To <?=$SYS_NAME;?></h4>
-                                    <h1 class="display-4 text-uppercase text-white mb-4">A Secret Worth Sharing, a Paradise Worth Staying.</h1>
+                                    <h1 class="display-4 text-uppercase text-white mb-4">Where Comfort Meets Elegance</h1>
                                     <p class="mb-4 fs-5"><?=$SYS_ABOUT;?>
                                     </p>
                                     <!-- <div class="d-flex flex-shrink-0">

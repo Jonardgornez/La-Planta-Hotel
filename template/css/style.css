@@ -343,7 +343,7 @@
 .service {
     position: relative;
     overflow: hidden;
-    background-image: url(../img/maincarousel-1.jpg);
+    background-image: url(../images/firstImage.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -442,7 +442,7 @@
     overflow: hidden;
     top: 0;
     left: 0;
-    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../img/maincarousel-2.jpg) center center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../images/secondImage.jpg) center center no-repeat;
     background-size: cover;
     z-index: -2;
     animation-name: attraction-image-zoom;

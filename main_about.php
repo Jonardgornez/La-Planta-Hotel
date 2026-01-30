@@ -4,7 +4,7 @@
                     <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.2s">
                         <div>
                             <h4 class="text-primary">About <?=$SYS_NAME;?></h4>
-                            <h1 class="display-5 mb-4">A Secret Worth Sharing, a Paradise Worth Staying.</h1>
+                            <h1 class="display-5 mb-4">Book Your Stay. Relax in Comfort.</h1>
                             <p class="mb-5"><?=$SYS_ABOUT;?>
                             </p>
                             <div class="row g-4">
@@ -13,7 +13,7 @@
                                         <div class="me-3"><i class="fas fa-glass-cheers fa-3x text-primary"></i></div>
                                         <div>
                                             <h4>Refreshments</h4>
-                                            <p> Refreshments include light snacks and beverages, both hot and cold, served to energize or entertain guests. They range from cookies, fruits, and sandwiches to drinks like coffee, juice, soda, or cocktails, making them essential for gatherings and social events.</p>
+                                            <p> La Planta Hotel and Restaurant offers refreshing drinks and light bites in a calm coastal setting, perfect for unwinding by the pool or after a day of exploring Bais. Enjoy freshly made juices, handcrafted beverages, and refreshing refreshments prepared with local ingredients, all served in a relaxed atmosphere that complements the beauty of the sea and surroundings.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -22,7 +22,7 @@
                                         <div class="me-3"><i class="fas fa-dot-circle fa-3x text-primary"></i></div>
                                         <div>
                                             <h4>Attractions</h4>
-                                            <p> Secret Paradise Resort is a serene mountain retreat surrounded by lush greenery and towering trees. Enjoy refreshing dips in natural spring pools, kayak or fish in tranquil ponds, and explore scenic nature trails. Unwind by the bonfire under a starlit sky, capturing breathtaking views along the way. A perfect escape for relaxation and adventure!</p>
+                                            <p> La Planta Hotel and Restaurant is a peaceful coastal retreat in Bais, Negros Oriental, blending rich history, natural beauty, and farm-to-table Negrense cuisine. Surrounded by pristine beaches, a nearby sandbar, and whale and dolphin watching spots, it offers a relaxing escape with authentic flavors and warm local hospitality.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -31,7 +31,7 @@
                                         <div class="me-3"><i class="fas fa-hand-holding-usd fa-3x text-primary"></i></div>
                                         <div>
                                             <h4>Affordable Price</h4>
-                                            <p>A perfect budget-friendly getaway for those seeking relaxation in nature. Whether you want adventure or tranquility, Secret Paradise Resort has something for everyone!                  </p>
+                                            <p>La Planta Hotel and Restaurant offers quality comfort, delicious cuisine, and refreshing drinks at affordable prices. Guests can enjoy exceptional hospitality, locally sourced food, and a relaxing coastal atmosphere without compromising value, making it an ideal choice for both travelers and locals.                  </p>
                                         </div>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                                 <div class="row g-0">
                                     <div class="col-lg-12">
                                         <div class="rounded mb-4">
-                                            <img src="dist/img/about.jpg" class="img-fluid rounded w-100" alt="">
+                                            <img src="dist/img/swimming_pool.jpg" class="img-fluid rounded w-100" alt="">
                                         </div>
                                         <div class="row gx-4 gy-0">
                                             <div class="col-6">

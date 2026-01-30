@@ -1,8 +1,8 @@
 <div class="container-fluid attractions py-5" id="attractions">
             <div class="container attractions-section py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">Attractions</h4>
-                    <h1 class="display-5 text-white mb-4">Explore <?=$SYS_NAME;?> Attractions</h1>
+                    <h4 class="text-primary">Foods</h4>
+                    <h1 class="display-5 text-white mb-4">Explore <?=$SYS_NAME;?> Foods</h1>
                     <!--<p class="text-white mb-0"><?=$SYS_ABOUT;?>-->
                     </p>
                     <?php
