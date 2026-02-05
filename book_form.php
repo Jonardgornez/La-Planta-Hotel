@@ -12,7 +12,7 @@
         <div class="container-fluid nav-bar sticky-top px-4 py-2 py-lg-0">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a href="index.php?home=home" class="navbar-brand p-0">
-                    <h1 class="display-6 text-dark">
+                     <h1 class="fs-5 text-dark fw-bold">
 					<!--<i class="fas fa-swimmer text-primary me-3"></i>-->
 					<?php
 					if($SYS_LOGO==""){
@@ -29,15 +29,16 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto py-0">
-                        <a href="index.php?home=home" class="nav-item nav-link active">Home</a>
+                         <a href="index.php?home=home" class="nav-item nav-link active">Home</a>
                         <a href="index.php?#about" class="nav-item nav-link">About</a>
                         <a href="index.php?#ourservices" class="nav-item nav-link">Service</a>
-                        <a href="index.php?#cottages" class="nav-item nav-link">Cottage</a>
+                        <a href="index.php?#cottages" class="nav-item nav-link">Rooms</a>
+                        <a href="index.php?#tables" class="nav-item nav-link">Tables</a>
 						<div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0">
                                 <a href="index.php?home=#Gallery" class="dropdown-item">Our Gallery</a>
-                                <a href="index.php?#attractions" class="dropdown-item">Attractions</a>
+                                <a href="index.php?#attractions" class="dropdown-item">Foods</a>
                                 <a href="main_feedback.php?#feedback" class="dropdown-item">Feedback</a>
                             </div>
                         </div>
@@ -115,27 +116,35 @@
 								</div>
 								</div>
 								<div class="col-lg-12">
+
+								<div class="form-group">
+								  <label for="" class="control-label font-weight-normal">Email</label>
+								  <input type="email"  class="form-control" id="EMAIL" name="EMAIL" placeholder="" required autocomplete>
+								</div>
+
+
 								<div class="form-group">
 								  <label for="" class="control-label font-weight-normal">First Name</label>
-								  <input type="text"  class="form-control" id="FIRSTNAME" name="FIRSTNAME" placeholder="" required>
+								  <input type="text"  class="form-control" id="FIRSTNAME" name="FIRSTNAME" placeholder="" required autocomplete>
 								</div>
+								
 								</div>
 								<div class="col-lg-12">
 								<div class="form-group">
 								  <label for="" class="control-label font-weight-normal">Middle Name</label>
-								  <input type="text"  class="form-control" id="MIDDLENAME" name="MIDDLENAME" placeholder="" required>
+								  <input type="text"  class="form-control" id="MIDDLENAME" name="MIDDLENAME" placeholder="" required autocomplete>
 								</div>
 								</div>
 								<div class="col-lg-12">
 								<div class="form-group">
 								  <label for="" class="control-label font-weight-normal">Last Name</label>
-								  <input type="text"  class="form-control" id="LASTNAME" name="LASTNAME" placeholder="" required>
+								  <input type="text"  class="form-control" id="LASTNAME" name="LASTNAME" placeholder="" required autocomplete>
 								</div>
 								</div>
 								<div class="col-lg-4">
 								<div class="form-group">
 								  <label for="" class="control-label font-weight-normal">Gender</label>
-									<select style="width:100%" class="form-control" id="GENDER" name="GENDER" required>
+									<select style="width:100%" class="form-control" id="GENDER" name="GENDER" required autocomplete>
 									  <option value=""></option>
 									  <option>MALE</option>
 									  <option>FEMALE</option>
@@ -157,7 +166,7 @@
 								<div class="col-lg-4">
 								<div class="form-group">
 								  <label for="" class="control-label font-weight-normal">Mobile #</label>
-								  <input type="text"  class="form-control" id="MOBILE" name="MOBILE" placeholder="" required>
+								  <input type="text"  class="form-control" id="MOBILE" name="MOBILE" placeholder="" required autocomplete>
 								</div>
 								</div>
 			 
@@ -214,7 +223,7 @@
 								<legend>AMOUNT PAYABLE</legend>
 							  <div class="col-lg-12">
 								<div class="form-group">
-								  <label for="" class="control-label font-weight-normal">Cottage Price</label>
+								  <label for="" class="control-label font-weight-normal">Room Price</label>
 								  <input type="text"  class="form-control cot_price" id="cotprice" name="COT_PRICE" readonly required>
 								</div>
 								</div>
@@ -276,7 +285,7 @@
                         <div>
                             <div class="py-3">
 										 <select class="form-control select2 office_select" id="office_select" class="form-control" autofocus required>
-										<option selected value="">-SELECT COTTAGE-</option>
+										<option selected value="">-SELECT ROOMS-</option>
 										  <?php
 											$sql = "SELECT * FROM tbl_cottage ORDER BY COT_NAME ASC";
 											$query = $conn->query($sql);

@@ -27,7 +27,7 @@
 
 <!-- Gallery Start -->
 
-<?php include "main_gallery.php";?>	
+<!-- <?php include "main_gallery.php";?>	 -->
 <!-- Gallery End -->
 
 
@@ -36,7 +36,10 @@
 <?php include "main_cottages.php";?>	
 <!-- Blog End -->
 
+<!-- Tables Start -->
 
+<?php include "main_tables.php";?>	
+<!-- Tables End -->
 <!-- Team Start -->
 
 <?php include "main_team.php";?>	

@@ -12,12 +12,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Attractions</h1>
+            <h1>Foods</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Attractions</li>
+              <li class="breadcrumb-item active">Foods</li>
             </ol>
           </div>
         </div>
@@ -57,7 +57,7 @@
               <div class="card-header">
               <h3 class="card-title"> 
                 <a href="#_add_modal" data-toggle="modal" class="btn btn-primary btn-sm <?=$YES_ADD;?>"><i class="fa fa-plus"></i> NEW</a>
-                <button data-target="#GalleryDesc" data-toggle="modal" class="btn btn-primary btn-sm" <?=$YES_EDIT;?>> <span class="fa fa-pen"></span> ATTRACTIONS DESCRIPTION</button>
+                <button data-target="#GalleryDesc" data-toggle="modal" class="btn btn-primary btn-sm" <?=$YES_EDIT;?>> <span class="fa fa-pen"></span> FOODS DESCRIPTION</button>
               </h3>
 			      	<div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">

@@ -12,12 +12,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Cottage</h1>
+            <h1>Rooms</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Cottage</li>
+              <li class="breadcrumb-item active">Rooms</li>
             </ol>
           </div>
         </div>
@@ -57,7 +57,7 @@
               <div class="card-header">
                <h3 class="card-title"> 
               <a href="#add_member" data-toggle="modal" class="btn btn-primary btn-sm <?=$YES_ADD;?>"><i class="fa fa-user-plus"></i> NEW</a>
-              <button data-target="#CottageDesc" data-toggle="modal" class="btn btn-primary btn-sm" <?=$YES_EDIT;?>> <span class="fa fa-pen"></span> COTTAGE DESCRIPTION</button>
+              <button data-target="#CottageDesc" data-toggle="modal" class="btn btn-primary btn-sm" <?=$YES_EDIT;?>> <span class="fa fa-pen"></span> ROOM DESCRIPTION</button>
             </h3>
 			      	<div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -75,8 +75,8 @@
                   <tr>
                     <th>#</th>
                     <th>IMAGE</th>
-                    <th class="text-nowrap">COTTAGE NO</th>
-                    <th class="text-nowrap">COTTAGE NAME</th>
+                    <th class="text-nowrap">ROOMS NO</th>
+                    <th class="text-nowrap">ROOMS NAME</th>
                     <th class="text-nowrap">DESCRIPTION</th>
                     <th>PRICE/CAPACITY</th>
                     <th class="text-nowrap">INCLUSION</th>

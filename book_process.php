@@ -7,6 +7,7 @@ if (!isset($_SERVER['HTTP_REFERER'])){
 
             $BOOK_DATE =$_POST["BOOK_DATE"];
             $BOOK_TIME =$_POST["BOOK_TIME"];
+            $EMAIL = $conn -> real_escape_string(strtoupper($_POST['EMAIL']));
             $FIRSTNAME = $conn -> real_escape_string(strtoupper($_POST['FIRSTNAME']));
             $MIDDLENAME = $conn -> real_escape_string(strtoupper($_POST["MIDDLENAME"]));
             $LASTNAME =$conn -> real_escape_string(strtoupper($_POST["LASTNAME"]));
@@ -51,8 +52,8 @@ if (!isset($_SERVER['HTTP_REFERER'])){
 				$PROOF_PAY = $_FILES['PROOF_PAYMENT']['tmp_name']; 
                 $UPLOAD_PAYMENT = file_get_contents($PROOF_PAY);
 				
-                $stmt=$conn->prepare("INSERT INTO `tbl_appointment`(`BOOK_DATE`, `BOOK_TIME`, `FIRSTNAME`, `MIDDLENAME`, `LASTNAME`, `GENDER`, `DATE_OF_BIRTH`, `AGE`, `MOBILE`, `ADDRESS`, `VALID_ID_NUMBER`, `UPLOAD_ID`, `UPLOAD_WITH_SELFIE`, `TERMS_OF_SERVICE`,`AUTO_NUMBER`, COT_ID,DOWN_PAYMENT,BALANCE,PAYMENT_REF_NO,PROOF_PAYMENT,PAYMENT_STATUS,COT_PRICE)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-                $stmt->bind_param('ssssssssssssssssssssss',$BOOK_DATE,$BOOK_TIME,$FIRSTNAME,$MIDDLENAME,$LASTNAME,$GENDER,$DATE_OF_BIRTH,$AGE,$MOBILE,$ADDRESS,$VALID_ID_NUMBER,$UPLOAD_ID,$UPLOAD_WITH_SELFIE,$TERMS_OF_SERVICE,$AUTO_NUMBER,$COT_ID,$DOWN_PAYMENT,$BALANCE,$PAYMENT_REF_NO,$UPLOAD_PAYMENT,$PAYMENT_STATUS,$COT_PRICE);
+                $stmt=$conn->prepare("INSERT INTO `tbl_appointment`(`BOOK_DATE`, `BOOK_TIME`,`EMAIL`, `FIRSTNAME`, `MIDDLENAME`, `LASTNAME`, `GENDER`, `DATE_OF_BIRTH`, `AGE`, `MOBILE`, `ADDRESS`, `VALID_ID_NUMBER`, `UPLOAD_ID`, `UPLOAD_WITH_SELFIE`, `TERMS_OF_SERVICE`,`AUTO_NUMBER`, COT_ID,DOWN_PAYMENT,BALANCE,PAYMENT_REF_NO,PROOF_PAYMENT,PAYMENT_STATUS,COT_PRICE)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                $stmt->bind_param('sssssssssssssssssssssss',$BOOK_DATE,$BOOK_TIME,$EMAIL,$FIRSTNAME,$MIDDLENAME,$LASTNAME,$GENDER,$DATE_OF_BIRTH,$AGE,$MOBILE,$ADDRESS,$VALID_ID_NUMBER,$UPLOAD_ID,$UPLOAD_WITH_SELFIE,$TERMS_OF_SERVICE,$AUTO_NUMBER,$COT_ID,$DOWN_PAYMENT,$BALANCE,$PAYMENT_REF_NO,$UPLOAD_PAYMENT,$PAYMENT_STATUS,$COT_PRICE);
                 if($stmt->execute()){
 					 echo '<script>
 					  Swal.fire({

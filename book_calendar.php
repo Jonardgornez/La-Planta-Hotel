@@ -118,7 +118,7 @@ function build_calendar($month, $year, $offid) {
                 
 				if($offid==0){
 					$calendar.="<td class='$today'><h4>$currentDay </h4>
-					<button class='btn bg-warning btn-block' style='color:#fff;font-size:9pt'>no cottage selected</button>
+					<button class='btn bg-warning btn-block' style='color:#fff;font-size:9pt'>no Room selected</button>
                     "; 
 				}else{
 				$totalbookings=checkSlots($conn, $date, $offid);

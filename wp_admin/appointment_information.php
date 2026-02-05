@@ -8,6 +8,7 @@ if(!empty($_GET['appointment_information'])){
 	if($result->num_rows > 0){
 		$row = $result->fetch_assoc();
     $RECORD_NUMBER    =$row['AUTO_NUMBER'];
+    $EMAIL    =$row['EMAIL'];
 		$MEMBERS          =$row['LASTNAME'].', '.$row['FIRSTNAME'].' '.$row['MIDDLENAME'];
 		$GENDER   			  =$row['GENDER'];
 		$DATE_OF_BIRTH    =$row['DATE_OF_BIRTH'];
@@ -98,6 +99,10 @@ if(!empty($_GET['appointment_information'])){
                   <th colspan="2" style="background:rgba(220, 221, 225,1.0);border-radius:3px" class="text-uppercase">Personal Information</th>
                   </tr>
                   <tr>
+                    <td width="180">EMAIL</td>
+                    <td width="400"><?=$EMAIL;?></td>
+                  </tr>
+                  <tr>
                     <td width="180">NAME</td>
                     <td width="400"><?=$MEMBERS;?></td>
                   </tr>
@@ -118,10 +123,10 @@ if(!empty($_GET['appointment_information'])){
 
                   </td>
                   </tr>
-                  <tr>
+                  <!-- <tr>
                     <td>AGE</td>
                     <td><?=$AGE;?></td>
-                  </tr>
+                  </tr> -->
 				            <tr>
                     <td>MOBILE </td>
                     <td><?=$MOBILE;?></td>
@@ -157,13 +162,13 @@ if(!empty($_GET['appointment_information'])){
 					          </td>
                   </tr>
                   <tr>
-                    <th colspan="2" style="background:rgba(220, 221, 225,1.0);border-radius:3px"> COTTAGE DETAILS</th>
+                    <th colspan="2" style="background:rgba(220, 221, 225,1.0);border-radius:3px"> ROOM DETAILS</th>
                     
                   </tr>
                   <tr>
                     <td>
                       REFERENCE NO: <?=$RECORD_NUMBER;?><br>
-                      COTTAGE NO:<?=$COT_NUMBER;?><br>
+                      ROOM NO:<?=$COT_NUMBER;?><br>
                       NAME: <?=$COT_NAME;?><br>
                       PRICE: <?=$COT_PRICE;?><br>
                       NO OF GUEST:<?=$COT_NUM_GUEST;?><br>

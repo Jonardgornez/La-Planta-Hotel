@@ -47,7 +47,7 @@ if(isset($_POST['search'])){
         <div class="container-fluid nav-bar sticky-top px-4 py-2 py-lg-0">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a href="index.php?home=home" class="navbar-brand p-0">
-                    <h1 class="display-6 text-dark">
+                     <h1 class="fs-5 text-dark fw-bold">
 					<!--<i class="fas fa-swimmer text-primary me-3"></i>-->
 					<?php
 					if($SYS_LOGO==""){
@@ -67,12 +67,13 @@ if(isset($_POST['search'])){
                         <a href="index.php?home=home" class="nav-item nav-link active">Home</a>
                         <a href="index.php?#about" class="nav-item nav-link">About</a>
                         <a href="index.php?#ourservices" class="nav-item nav-link">Service</a>
-                        <a href="index.php?#cottages" class="nav-item nav-link">Cottage</a>
+                        <a href="index.php?#cottages" class="nav-item nav-link">Rooms</a>
+                        <a href="index.php?#tables" class="nav-item nav-link">Tables</a>
 						<div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0">
                                 <a href="index.php?home=#Gallery" class="dropdown-item">Our Gallery</a>
-                                <a href="index.php?#attractions" class="dropdown-item">Attractions</a>
+                                <a href="index.php?#attractions" class="dropdown-item">Foods</a>
                                 <a href="main_feedback.php?#feedback" class="dropdown-item">Feedback</a>
                             </div>
                         </div>

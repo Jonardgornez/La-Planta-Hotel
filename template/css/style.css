@@ -294,7 +294,7 @@
 .bg-breadcrumb {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/maincarousel-1.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/fourthImage.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -733,7 +733,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url(../img/maincarousel-1.jpg);
+    background-image: url(../images/firstImage.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;

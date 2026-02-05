@@ -121,7 +121,7 @@
               <li class="nav-item">
                 <a href="cottage.php?home=cottage" class="nav-link">
                 <i class="nav-icon fas fa-sharp fa-solid fa-bezier-curve"></i> 
-                  <p class="">Cottage</p>
+                  <p class="">Rooms</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -145,7 +145,7 @@
               <li class="nav-item">
                 <a href="attractions.php?home=attractions" class="nav-link">
                 <i class="nav-icon fas fa-sharp fa-solid fa-bezier-curve"></i> 
-                  <p class="">Attractions</p>
+                  <p class="">Foods</p>
                 </a>
               </li>
           </ul>

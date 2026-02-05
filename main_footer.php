@@ -4,7 +4,7 @@
                     <div class="col-md-6 col-lg-6 col-xl-4">
                         <div class="footer-item">
                             <a href="index.html" class="p-0">
-                                <h4 class="text-white mb-4"><i class="fas fa-swimmer text-primary me-3"></i><?=$SYS_SHORTNAME;?></h4>
+                                <h4 class="text-white mb-4"><i class="fa-thin fa-hotel fa-bounce text-primary me-3"></i><?=$SYS_SHORTNAME;?></h4>
                                 <!-- <img src="img/logo.png" alt="Logo"> -->
                             </a>
                             <p class="mb-2"><?=$SYS_ABOUT;?></p>

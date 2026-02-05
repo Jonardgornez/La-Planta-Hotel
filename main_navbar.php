@@ -31,12 +31,12 @@
                         <a href="#about" class="nav-item nav-link">About</a>
                         <a href="#ourservices" class="nav-item nav-link">Service</a>
                         <a href="#cottages" class="nav-item nav-link">Rooms</a>
-                        <a href="#cottages" class="nav-item nav-link">Tables</a>
+                        <a href="#tables" class="nav-item nav-link">Tables</a>
 						<div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0">
-                                <a href="#Gallery" class="dropdown-item">Our Gallery</a>
-                                <a href="#attractions" class="dropdown-item">Attractions</a>
+                                <!-- <a href="#Gallery" class="dropdown-item">Our Gallery</a> -->
+                                <a href="#attractions" class="dropdown-item">Foods</a>
                                 <a href="main_feedback.php?#feedback" class="dropdown-item">Feedback</a>
                             </div>
                         </div>

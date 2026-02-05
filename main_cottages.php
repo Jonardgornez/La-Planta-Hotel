@@ -1,8 +1,8 @@
 <div class="container-fluid blog pb-5" id="cottages">
             <div class="container pb-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">Our Cottages</h4>
-                    <h1 class="display-5 mb-4">Latest Cottages & Description</h1>
+                    <h4 class="text-primary">Our Rooms</h4>
+                    <h1 class="display-5 mb-4">Latest Rooms & Description</h1>
                    <?php
                     $sql = "SELECT * FROM tbl_cottage ORDER BY COT_ID DESC LIMIT 1";
                     $sql=$conn->prepare($sql);

@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
           	<div class="modal-header">
-			  <h4 class="modal-title"><span class="fa fa-plus"></span> MANAGE COTTAGE</h4>
+			  <h4 class="modal-title"><span class="fa fa-plus"></span> MANAGE ROOMS</h4>
 			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			  </button>
@@ -15,7 +15,7 @@
                     <div class="col-lg-12">
                     <div class="form-group">
                     <input type="TEXT" class="form-control" name="COT_NUMBER" value="<?=$number;?>" required>
-                      <label for="" class="control-label font-weight-normal">Cottage Name</label>
+                      <label for="" class="control-label font-weight-normal">ROOM Name</label>
                       <input type="text"  class="form-control" name="COT_NAME" placeholder="" required>
                     </div>
                     </div>
@@ -101,7 +101,7 @@
                     <div class="col-lg-12">
                     <div class="form-group">
                     <input type="hidden" class="form-control edit_cotid" name="COT_ID" required>
-                      <label for="" class="control-label font-weight-normal">Cottage Name</label>
+                      <label for="" class="control-label font-weight-normal">Room Name</label>
                       <input type="text"  class="form-control edit_cotname" name="COT_NAME" placeholder="" required>
                     </div>
                     </div>
@@ -236,7 +236,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
           	<div class="modal-header">
-			  <h4 class="modal-title"><span class="fa fa-pen"></span> COTTAGE DESCRIPTION</h4>
+			  <h4 class="modal-title"><span class="fa fa-pen"></span> ROOM DESCRIPTION</h4>
 			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			  </button>
