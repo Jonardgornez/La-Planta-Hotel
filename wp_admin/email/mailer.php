@@ -22,13 +22,13 @@ function sendEmail($to, $subject, $body) {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'requisitionissuancesystem@gmail.com'; // your email
-        $mail->Password   = 'sarudtylzerrblyt';     // app password from Gmail
+        $mail->Username   = 'laplantahotelrestaurant@gmail.com'; // your email
+        $mail->Password   = 'fvlgvwrsbccvkpek';     // app password from Gmail
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
         // Recipients
-        $mail->setFrom('requisitionissuancesystem@gmail.com', 'La Planta Hotel & Restaurant');
+        $mail->setFrom('laplantahotelrestaurant@gmail.com', 'La Planta Hotel & Restaurant');
         $mail->addAddress($to);
 
         // Content
