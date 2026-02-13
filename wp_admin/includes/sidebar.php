@@ -73,8 +73,41 @@
           
           <li class="nav-item">
             <a href="#" class="nav-link">
+              <i class="nav-icon fas  fa-solid fa-table"></i>
+              <p>TABLE RESERVATION <i class="fas fa-angle-left right"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="appointment_pending.php?home=appointment_pending" class="nav-link">
+                <i class="nav-icon fas fa-sharp fa-solid fa-bezier-curve"></i>
+                  <p class="">Pending</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="appointment_rejected.php?home=appointment_rejected" class="nav-link">
+                <i class="nav-icon fas fa-sharp fa-solid fa-bezier-curve"></i> 
+                  <p class="">Rejected</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="appointment.php?home=appointment_approved" class="nav-link">
+                <i class="nav-icon fas fa-sharp fa-solid fa-bezier-curve"></i>
+                  <p class="">Approved</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="appointment_completed.php?home=appointment_completed" class="nav-link">
+                <i class="nav-icon fas fa-sharp fa-solid fa-bezier-curve"></i>
+                  <p class="">Completed</p>
+                </a>
+              </li>
+          </ul>
+      </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-calendar-alt"></i>
-              <p>RESERVATION <i class="fas fa-angle-left right"></i></p>
+              <p>ROOM RESERVATION <i class="fas fa-angle-left right"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
