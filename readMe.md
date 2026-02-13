@@ -22,7 +22,9 @@ The calm atmosphere and beautiful sea surroundings make it a great place to unwi
 - MySQL
 - HTML
 - CSS
-- JavaScript
+- BOOTSTRAP
+- JavaScript 
+- JQUERY
 - XAMPP (Apache & MySQL)
 ----
 
