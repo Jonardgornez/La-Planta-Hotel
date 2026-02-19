@@ -156,6 +156,9 @@ $result2      = mysqli_query($conn, $sql2);
 
         <!-- Template Stylesheet -->
         <link href="template/css/style.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+
+
 		
 
     </head>

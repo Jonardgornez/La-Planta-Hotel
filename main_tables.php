@@ -77,39 +77,60 @@
 
 <div class="container booking-container" id="tables">
     <div class="booking-card">
-        <h1 class="form-title">Book a Table</h1>
+        <h1 class="form-title" >Book a Table</h1>
+        <h2 style="text-align:center; color:#3cbeee ">PAYMENT TO GCASH: 09703348633</h2>
+            <form action="tableData/submit_booking.php" method="POST" enctype="multipart/form-data">
+    <div class="row g-4">
 
-        <form>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg">
-                    <label class="form-label">Name *</label>
-                    <input type="text" class="form-control" required>
-                </div>
+        <div class="col-md-6">
+            <label class="form-label">Name *</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
 
-                <div class="col-md-6 col-lg">
-                    <label class="form-label">Contact Number *</label>
-                    <input type="tel" class="form-control" required>
-                </div>
+        <div class="col-md-6">
+            <label class="form-label">Email *</label>
+            <input type="email" name="email" class="form-control" required>
+        </div>
 
-                <div class="col-md-4">
-                    <label class="form-label">Date *</label>
-                    <input type="date" class="form-control" required>
-                </div>
+        <div class="col-md-4">
+            <label class="form-label">Date *</label>
+            <input type="date" name="booking_date" class="form-control" required>
+        </div>
 
-                <div class="col-md-4">
-                    <label class="form-label">Time *</label>
-                    <input type="time" class="form-control" required>
-                </div>
+        <div class="col-md-4">
+            <label class="form-label">Time *</label>
+            <input type="time" name="booking_time" class="form-control" required>
+        </div>
 
-                <div class="col-md-4">
-                    <label class="form-label">No of People *</label>
-                    <input type="number" class="form-control" min="1" required>
-                </div>
-            </div>
+        <div class="col-md-4">
+            <label class="form-label">No of People *</label>
+            <input type="number" name="number_of_people" class="form-control" min="1" required>
+        </div>
 
-            <button type="submit" class="btn btn-submit">
-                Submit Booking
-            </button>
-        </form>
+        <div class="col-md-6">
+            <label class="form-label">Price *</label>
+            <input type="number" name="price" value="300" readonly  style="background:none"
+            class="form-control">
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Upload Payment Screenshot *</label>
+            <input
+                style="background:none;" 
+                type="file" 
+                name="fileUpload" 
+                class="form-control"
+                accept=".png,.jpg,.jpeg,.pdf" 
+                required
+            >
+        </div>
+
     </div>
+
+    <button type="submit" class="btn btn-submit">
+        Submit Booking
+    </button>
+</form>
+
+           </div>
 </div>

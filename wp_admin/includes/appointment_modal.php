@@ -8,6 +8,7 @@
 				<span aria-hidden="true">&times;</span>
 			  </button>
 			</div>
+            
             <form autocomplete="off" class="form-horizontal needs-validation" method="POST" action="appointment_approved.php" enctype="multipart/form-data" novalidate>
           	<div class="modal-body">
                     <input type="text" id="approved_appid" name="APP_ID" required hidden>
