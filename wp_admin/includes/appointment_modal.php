@@ -9,7 +9,7 @@
 			  </button>
 			</div>
             
-            <form autocomplete="off" class="form-horizontal needs-validation" method="POST" action="appointment_approved.php" enctype="multipart/form-data" novalidate>
+            <form autocomplete="off" class="form-horizontal needs-validation" method="POST" action="table_appointment_approved.php" enctype="multipart/form-data" novalidate>
           	<div class="modal-body">
                     <input type="text" id="approved_appid" name="APP_ID" required hidden>
                     <p>Are you sure you want to approved this appointment?</p>
@@ -34,7 +34,7 @@
 				<span aria-hidden="true">&times;</span>
 			  </button>
 			</div>
-            <form autocomplete="off" class="form-horizontal needs-validation" method="POST" action="appointment_reject.php" enctype="multipart/form-data" novalidate>
+            <form autocomplete="off" class="form-horizontal needs-validation" method="POST" action="table_appointment_reject.php" enctype="multipart/form-data" novalidate>
           	<div class="modal-body">
                     <input type="text" id="appreject_appid" name="APP_ID" required hidden>
                     
@@ -65,7 +65,7 @@
 				<span aria-hidden="true">&times;</span>
 			  </button>
 			</div>
-            <form autocomplete="off" class="form-horizontal needs-validation" method="POST" action="appointment_complete.php" enctype="multipart/form-data" novalidate>
+            <form autocomplete="off" class="form-horizontal needs-validation" method="POST" action="table_appointment_complete.php" enctype="multipart/form-data" novalidate>
           	<div class="modal-body">
                     <input type="text" id="appcompleted_appid" name="APP_ID" required hidden>
                     <div class="col-md-12">
