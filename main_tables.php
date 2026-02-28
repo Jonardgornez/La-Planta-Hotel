@@ -92,8 +92,14 @@
             <input type="email" name="email" class="form-control" required>
         </div>
 
+        <div class="col-md-6">
+            <label class="form-label">Email *</label>
+            <input type="email" name="email" class="form-control" required>
+        </div>
+
+
         <div class="col-md-4">
-            <label class="form-label">Date *</label>
+            <label class="form-label">Date of Appointment *</label>
             <input type="date" name="booking_date" class="form-control" required>
         </div>
 
@@ -123,6 +129,11 @@
                 accept=".png,.jpg,.jpeg,.pdf" 
                 required
             >
+        </div>
+        
+        <div class="col-md-6">
+            <label class="form-label">Email *</label>
+            <input type="email" name="email" class="form-control" required>
         </div>
 
     </div>

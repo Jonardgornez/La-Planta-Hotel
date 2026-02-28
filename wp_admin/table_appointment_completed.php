@@ -2,8 +2,8 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-<?php @include "includes/navbar.php";?>
-<?php @include "includes/sidebar.php";?>
+<?php include "includes/navbar.php";?>
+<?php include "includes/sidebar.php";?>
 
 <div class="content-wrapper">
 
@@ -81,7 +81,7 @@ if($stmt->execute()){
       <span class="fa fa-print"></span>
     </button>
 
-    <a href="appointment_information.php?appointment_information=<?=$row['id'];?>" 
+    <a href="table_appointment_infomation.php?appointment_information=<?=$row['id'];?>" 
        class="btn btn-success btn-sm">
        <span class="fa fa-eye"></span>
     </a>

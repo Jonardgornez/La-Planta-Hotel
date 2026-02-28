@@ -4,7 +4,7 @@ include 'includes/session.php';
 if(isset($_POST['submit'])){
 
     $stats = 4; // 2 = Completed
-    $id = $_POST['id'];
+    $id = $_POST['APP_ID'];
 
     $stmt = $conn->prepare("UPDATE table_appointment SET app_status=? WHERE id=?");
     $stmt->bind_param('ii', $stats, $id);

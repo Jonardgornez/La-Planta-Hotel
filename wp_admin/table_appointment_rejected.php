@@ -122,7 +122,7 @@ if($stmt->execute()){
         <span class="fa fa-money-bill"></span>
       </button>
 
-      <a href="appointment_information.php?id=<?= $row['id']; ?>"
+      <a href="table_appointment_infomation.php?id=<?= $row['id']; ?>"
          class="btn btn-success btn-sm">
         <span class="fa fa-eye"></span>
       </a>

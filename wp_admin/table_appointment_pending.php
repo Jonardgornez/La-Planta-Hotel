@@ -152,7 +152,7 @@ if ($stmt->execute()) {
                         <button data-appid="<?=$row['id'];?>" data-balance="<?=$balance;?>" onclick="appPayment(this);" class="btn btn-info btn-sm" data-jario="tooltip" data-placement="top" title="PAYMENT">
                             <span class="fa fa-money-bill"></span>
                         </button>
-                        <a href="appointment_information.php?appointment_information=<?=$row['id'];?>" class="btn btn-success btn-sm" data-jario="tooltip" data-placement="top" title="FULL INFORMATION">
+                        <a href="table_appointment_infomation.php?appointment_information=<?=$row['id'];?>" class="btn btn-success btn-sm" data-jario="tooltip" data-placement="top" title="FULL INFORMATION">
                             <span class="fa fa-eye"></span>
                         </a>
                         <button data-appid="<?=$row['id'];?>" onclick="appApproved(this);" class="btn btn-primary btn-sm" data-jario="tooltip" data-placement="top" title="APPROVED">
