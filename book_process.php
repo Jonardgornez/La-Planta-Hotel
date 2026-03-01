@@ -43,7 +43,7 @@ if (!isset($_SERVER['HTTP_REFERER'])){
 
             if($UPLOAD_SIZE <=2097152 || $UPLOAD_WITH_SELFIE_SIZE <=2097152 || $PROOF_PAYMENT_SIZE <=2097152){
 
-            $allowTypes = array('jpg','JPG','png','PNG','jpeg','JPEG','gif','GIF'); 
+            $allowTypes = array('jpg','JPG','png','PNG','jpeg','JPEG','gif','GIF','pdf','PDF'); 
             if(in_array($UPLOAD_ID_TYPE, $allowTypes) || in_array($UPLOAD_WITH_SELFIE_TYPE, $allowTypes) || in_array($PROOF_PAYMENT_TYPE, $allowTypes)){ 
                 $IMAGE_ID = $_FILES['UPLOAD_ID']['tmp_name']; 
                 $UPLOAD_ID =file_get_contents($IMAGE_ID);

@@ -89,7 +89,7 @@ $time_details=$c_rows['POSTING_DATE'];
 						<div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0">
-                                <a href="index.php?home=#Gallery" class="dropdown-item">Our Gallery</a>
+                                <!-- <a href="index.php?home=#Gallery" class="dropdown-item">Our Gallery</a> -->
                                 <a href="index.php?#attractions" class="dropdown-item">Foods</a>
 								<a href="main_feedback.php?#feedback" class="dropdown-item">Feedback</a>
                             </div>
