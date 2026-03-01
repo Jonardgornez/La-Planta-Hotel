@@ -123,7 +123,7 @@ $stmt->close();
 </section>
 </div>
 
-<?php include "includes/appointment_modal.php"; ?>
+<?php include "includes/table_appointment_modal.php"; ?>
 <?php include "includes/footer.php"; ?>
 
 <script>
