@@ -1,216 +1,194 @@
 <?php
-	//ob_start();
-	session_start();
-	if(!isset($_SESSION['admin']) || trim($_SESSION['admin']) == ''){
-		header("location:404.php?404");
-	}
+session_start();
+if (!isset($_SESSION['admin']) || trim($_SESSION['admin']) == '') {
+    header("location:404.php?404");
+    exit();
+}
+
 include "wp_admin/includes/conn.php";
-	
-// $AUTO_NUMBER = $conn -> real_escape_string(strtoupper($_POST['AUTO_NUMBER']));
-// $FIRSTNAME = $conn -> real_escape_string(strtoupper($_POST['FIRSTNAME']));
-// $MIDDLENAME = $conn -> real_escape_string(strtoupper($_POST["MIDDLENAME"]));
-// $LASTNAME =$conn -> real_escape_string(strtoupper($_POST["LASTNAME"]));
 
- 
-    $stmt =$conn->prepare("SELECT * FROM tbl_appointment WHERE APP_ID=?");
-    $stmt->bind_param('s',$_SESSION['admin']);
-    if($stmt->execute()){
-    $result=$stmt->get_result();
-    if($result->num_rows > 0){
-        
-        $value = $result->fetch_assoc();
-          $APP_ID    	        =$value['APP_ID'];
-          $NAME               =$value['LASTNAME'].', '.$value['FIRSTNAME'].' '.$value['MIDDLENAME'];
-          $BOOK_DATE   			  =$value['BOOK_DATE'];
-          $APP_STATUS    		  =$value['APP_STATUS'];
-          $DATE_ACTION    		=$value['DATE_ACTION'];
-          $AUTO_NUMBER        =$value['AUTO_NUMBER'];
-          $BOOK_TIME          =$value['BOOK_TIME'];
-          $MOBILE             =$value['MOBILE'];
-          $ADDRESS            =$value['ADDRESS'];
-          $VALID_ID_NUMBER    =$value['VALID_ID_NUMBER'];
-          if($value['APP_STATUS']==0){
-            $STATUS='<label class="text-warning" style="color:orange">Pending</label>';
-          }elseif($value['APP_STATUS']==1){
-              $STATUS='<label class="text-success" style="color:green">Approved</label>';
-          }elseif($value['APP_STATUS']==2){
-            $STATUS='<label class="text-primary" style="color:blue">Completed</label>';
-          }elseif($value['APP_STATUS']==3){
-              $STATUS='<label class="text-danger" style="color:red">Rejected</label>';
-          }
+$stmt = $conn->prepare("SELECT * FROM tbl_appointment WHERE APP_ID=?");
+$stmt->bind_param('s', $_SESSION['admin']);
+$stmt->execute();
+$result = $stmt->get_result();
 
-        $stmt=$conn->prepare("SELECT * FROM tbl_cottage WHERE COT_ID=?");
-        $stmt->bind_param('s',$value['COT_ID']);
-        $stmt->execute();
-        $cottage_query = $stmt->get_result();
-        $cot_rows=$cottage_query->fetch_assoc();
-        $COT_NUMBER=$cot_rows['COT_NUMBER'];
-        $COT_NAME=$cot_rows['COT_NAME'];
-        $COT_DESCRIPTION=$cot_rows['COT_DESCRIPTION'];
-        $COT_PRICE=$cot_rows['COT_PRICE'];
-        $COT_NUM_GUEST=$cot_rows['COT_NUM_GUEST'];
-        $COT_INCLUSION=$cot_rows['COT_INCLUSION'];
-        $COT_IMAGE=$cot_rows['COT_IMAGE'];
+if (!$result || $result->num_rows <= 0) {
+    header("location:404.php?404");
+    exit();
+}
 
-        
+$value = $result->fetch_assoc();
 
-        
-    }
-  }
+$APP_ID          = $value['APP_ID'];
+$AUTO_NUMBER     = $value['AUTO_NUMBER'];
+$NAME            = $value['LASTNAME'] . ', ' . $value['FIRSTNAME'] . ' ' . $value['MIDDLENAME'];
+$BOOK_DATE       = $value['BOOK_DATE'];
+$BOOK_TIME       = $value['BOOK_TIME'];
+$APP_STATUS      = $value['APP_STATUS'];
+$DATE_ACTION     = $value['DATE_ACTION'];
+$MOBILE          = $value['MOBILE'];
+$ADDRESS         = $value['ADDRESS'];
+$VALID_ID_NUMBER = $value['VALID_ID_NUMBER'];
 
-  
+if ($APP_STATUS == 0) {
+    $STATUS = '<span style="color:orange;"><b>Pending</b></span>';
+} elseif ($APP_STATUS == 1) {
+    $STATUS = '<span style="color:green;"><b>Approved</b></span>';
+} elseif ($APP_STATUS == 2) {
+    $STATUS = '<span style="color:blue;"><b>Completed</b></span>';
+} elseif ($APP_STATUS == 3) {
+    $STATUS = '<span style="color:red;"><b>Rejected</b></span>';
+} else {
+    $STATUS = '<span><b>Unknown</b></span>';
+}
 
-  
-require_once('tcpdf/tcpdf.php');  
+// Fetch cottage info
+$stmt2 = $conn->prepare("SELECT * FROM tbl_cottage WHERE COT_ID=?");
+$stmt2->bind_param('s', $value['COT_ID']);
+$stmt2->execute();
+$cottage_query = $stmt2->get_result();
 
-  // Extend the TCPDF class to create custom Header and Footer
+$COT_NUMBER = $COT_NAME = $COT_PRICE = $COT_INCLUSION = '';
+if ($cottage_query && $cottage_query->num_rows > 0) {
+    $cot_rows = $cottage_query->fetch_assoc();
+    $COT_NUMBER    = $cot_rows['COT_NUMBER'];
+    $COT_NAME      = $cot_rows['COT_NAME'];
+    $COT_PRICE     = $cot_rows['COT_PRICE'];
+    $COT_INCLUSION = $cot_rows['COT_INCLUSION'];
+}
+
+require_once('tcpdf/tcpdf.php');
+
+// Custom PDF class
 class MYPDF extends TCPDF {
-  //Page header
-  public function Header() {
-      // get the current page break margin
-      $bMargin = $this->getBreakMargin();
-      // get current auto-page-break mode
-      $auto_page_break = $this->AutoPageBreak;
-      // disable auto-page-break
-      $this->SetAutoPageBreak(false, 0);
-      // set bacground image
-      $img_file = file_get_contents('dist/img/Logo.png');
-	  $pdf->Image('@' . $img_file, 25, 50, 160, '', '', '', '', false, 50, '', false);
-	  
-      // restore auto-page-break status
-      $this->SetAutoPageBreak($auto_page_break, $bMargin);
-      // set the starting point for the page content
-      $this->setPageMark();
-  }
-  public function Footer() {
-    // Position at 15 mm from bottom
-    $this->SetY(-15);
-    // Set font
-    $this->SetFont('helvetica', 'I', 8);
-    // Page number
-    //$this->Cell(0, 10, 'Generated on '.date('l F d, Y').' Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
-}
+    public function Header() {
+        // If you want a header image, use $this->Image (NOT $pdf)
+        // But since setPrintHeader(FALSE) is used below, header won't show anyway.
+    }
+
+    public function Footer() {
+        $this->SetY(-15);
+        $this->SetFont('helvetica', 'I', 8);
+        // optional footer text:
+        // $this->Cell(0, 10, 'Generated on '.date('F d, Y'), 0, 0, 'C');
+    }
 }
 
-    //$pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);  
-    $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-    $pdf->SetCreator(PDF_CREATOR);  
-    $pdf->SetTitle('REFERENCE: '.$AUTO_NUMBER);  
-    $pdf->SetHeaderData('', '', PDF_HEADER_TITLE, PDF_HEADER_STRING);  
-    $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));  
-    $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));  
-    $pdf->SetDefaultMonospacedFont('helvetica');  
-    $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);  
-    $pdf->SetMargins(PDF_MARGIN_LEFT, '10', PDF_MARGIN_RIGHT);  
-    $pdf->setPrintHeader(FALSE);  
-    $pdf->setPrintFooter(TRUE);  
-    $pdf->SetAutoPageBreak(TRUE, 10);  
-    $pdf->SetFont('helvetica', '', 11);  
-    $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
-	$pdf->AddPage(); 
-	
-	$pdf->SetAlpha(0.1);
-	$img_file = file_get_contents('dist/img/Logo.png');
-	$pdf->Image('@' . $img_file, 25, 40, 150, '', '', '', '', false, 50, 'C', false);
-	$pdf->SetAlpha(1);
-	
-	
-  $style = array(
+$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+$pdf->SetCreator(PDF_CREATOR);
+$pdf->SetTitle('REFERENCE: ' . $AUTO_NUMBER);
+
+$pdf->SetMargins(PDF_MARGIN_LEFT, 10, PDF_MARGIN_RIGHT);
+$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+$pdf->setPrintHeader(false);
+$pdf->setPrintFooter(true);
+
+$pdf->SetAutoPageBreak(true, 10);
+$pdf->SetFont('helvetica', '', 11);
+$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
+$pdf->AddPage();
+
+// Watermark logo (optional)
+$pdf->SetAlpha(0.08);
+if (file_exists('dist/img/Logo.png')) {
+    $img_file = file_get_contents('dist/img/Logo.png');
+    $pdf->Image('@' . $img_file, 25, 40, 150, '', '', '', '', false, 50, 'C', false);
+}
+$pdf->SetAlpha(1);
+
+// Barcode
+$style = array(
     'position' => '',
     'align' => 'C',
     'stretch' => false,
     'fitwidth' => true,
-    'cellfitalign' => '',
     'border' => true,
     'hpadding' => 'auto',
     'vpadding' => 'auto',
-    //'fgcolor' => array(128,0,0),
-    'bgcolor' => false, //array(255,255,255),
+    'bgcolor' => false,
     'text' => true,
     'font' => 'helvetica',
     'fontsize' => 8,
     'stretchtext' => 4
 );
 $pdf->write1DBarcode($AUTO_NUMBER, 'C128', 15, 150, '', 15, 0.4, $style, 'N');
-$pdf->SetY(-280);
+
+$pdf->SetY(15);
+
+// ✅ FIXED HTML (tables are valid now: table -> tr -> td)
 $contents = '
-<table >
-<td align="center"><img src="dist/img/Logo.png" alt="" class="float-left" width="100"></td>
+<table width="100%" border="0" cellpadding="2">
+  <tr>
+    <td align="center" style="font-size:18px;"><b>RESERVATION RECEIPT</b></td>
+  </tr>
 </table>
-<h1 align="center">RESERVATION RECEIPT</h1>
-<div style="border-bottom:1px solid #000"></div>
+
+<hr>
+
 <br>
-<br>
-<br>
-<br>
+
 <table cellspacing="5" width="100%" border="0">
-<tbody>
-<tr>
-  <td>STATUS:</td>
-  <td>'.$STATUS.'</td>
-</tr>
-<tr>
-  <td>REFERENCE NO:</td>
-  <td>'.$AUTO_NUMBER.'</td>
-</tr>
-<tr>
-  <td>CLEINT NAME:</td>
-  <td>'.$NAME.'</td>
-</tr>
-<tr>
-  <td>CONTACT:</td>
-  <td>'.$MOBILE.'</td>
-</tr>
-<tr>
-  <td>ADDRESS:</td>
-  <td>'.$ADDRESS.'</td>
-</tr>
-
-<tr>
-  <td>DATE RESERVED:</td>
-  <td>'.date('l F d, Y',strtotime($BOOK_DATE)).' '.$BOOK_TIME.'</td>
-</tr>
-<tr>
-  <td>VALID ID:</td>
-  <td>'.$VALID_ID_NUMBER.'</td>
-</tr>
-
-</tbody>
+  <tr>
+    <td width="30%"><b>STATUS:</b></td>
+    <td width="70%">'.$STATUS.'</td>
+  </tr>
+  <tr>
+    <td><b>REFERENCE NO:</b></td>
+    <td>'.$AUTO_NUMBER.'</td>
+  </tr>
+  <tr>
+    <td><b>CLIENT NAME:</b></td>
+    <td>'.$NAME.'</td>
+  </tr>
+  <tr>
+    <td><b>CONTACT:</b></td>
+    <td>'.$MOBILE.'</td>
+  </tr>
+  <tr>
+    <td><b>ADDRESS:</b></td>
+    <td>'.$ADDRESS.'</td>
+  </tr>
+  <tr>
+    <td><b>DATE RESERVED:</b></td>
+    <td>'.date('l F d, Y', strtotime($BOOK_DATE)).' '.$BOOK_TIME.'</td>
+  </tr>
+  <tr>
+    <td><b>VALID ID:</b></td>
+    <td>'.$VALID_ID_NUMBER.'</td>
+  </tr>
 </table>
-<div style="border-bottom:1px solid #000"></div>
-<table cellspacing="5" width="100%">
-<tbody>
-<tr>
-  <td>COTTAGE NO:</td>
-  <td>'.$COT_NUMBER.'</td>
-</tr>
-<tr>
-  <td>COTTAGE NAME:</td>
-  <td>'.$COT_NAME.'</td>
-</tr>
-<tr>
-  <td>COTTAGE PRICE:</td>
-  <td>'.$COT_PRICE.'</td>
-</tr>
-<tr>
-  <td>COTTAGE INCLUSION:</td>
-  <td>'.$COT_INCLUSION.'</td>
-</tr>
-</tbody>
+
+<hr>
+
+<table cellspacing="5" width="100%" border="0">
+  <tr>
+    <td width="30%"><b>COTTAGE NO:</b></td>
+    <td width="70%">'.$COT_NUMBER.'</td>
+  </tr>
+  <tr>
+    <td><b>COTTAGE NAME:</b></td>
+    <td>'.$COT_NAME.'</td>
+  </tr>
+  <tr>
+    <td><b>COTTAGE PRICE:</b></td>
+    <td>'.$COT_PRICE.'</td>
+  </tr>
+  <tr>
+    <td><b>COTTAGE INCLUSION:</b></td>
+    <td>'.$COT_INCLUSION.'</td>
+  </tr>
 </table>
-<br><br>
-<div align="center">
-<br><br>
-<br><br>
-<br><br>
+';
 
-</div>
+$pdf->writeHTML($contents, true, false, true, false, '');
 
-
-    ';
-    $pdf->writeHTML($contents);  
-    //$pdf->writeHTML($contents,true, false, true, false, '');
+// Avoid "ob_end_clean()" error if no output buffering started
+if (ob_get_length()) {
     ob_end_clean();
-    $pdf->Output('Reservation Receipt.pdf', 'I');
+}
 
+$pdf->Output('Reservation Receipt.pdf', 'I');
+exit();
 ?>

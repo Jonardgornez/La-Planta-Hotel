@@ -72,7 +72,7 @@
 						<div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0">
-                                <a href="index.php?home=#Gallery" class="dropdown-item">Our Gallery</a>
+                                <!-- <a href="index.php?home=#Gallery" class="dropdown-item">Our Gallery</a> -->
                                 <a href="index.php?#attractions" class="dropdown-item">Foods</a>
 								<a href="main_feedback.php?#feedback" class="dropdown-item">Feedback</a>
                             </div>
@@ -225,7 +225,7 @@
     	<div class="modal-content">
 	      	<div class="modal-header">
 	        	<h5 class="modal-title">Submit Feedback</h5>
-	        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	        	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 	          		<span aria-hidden="true">&times;</span>
 	        	</button>
 	      	</div>
