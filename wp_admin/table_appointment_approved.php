@@ -4,7 +4,7 @@ include 'email/mailer.php';
 
 if(isset($_POST['submit'])){
 
-    $APP_ID = intval($_POST['APP_ID']); // safer
+    $APP_ID = intval($_POST['APP_ID']); 
     $APP_STATUS = 3; // Approved
 
     // Update appointment status
@@ -13,8 +13,10 @@ if(isset($_POST['submit'])){
 
     if($stmt->execute()){
 
-        // Fetch client info from NEW table
-        $stmt2 = $conn->prepare("SELECT name, email, booking_date FROM table_appointment WHERE id=?");
+        // Fetch client info including gcash reference number
+        $stmt2 = $conn->prepare("SELECT name, email, booking_date, gcashref_number 
+                                 FROM table_appointment 
+                                 WHERE id=?");
         $stmt2->bind_param('i', $APP_ID);
         $stmt2->execute();
         $result = $stmt2->get_result();
@@ -24,15 +26,17 @@ if(isset($_POST['submit'])){
             $clientEmail = $row['email'];
             $clientName  = $row['name'];
             $bookDate    = $row['booking_date'];
+            $gcashRef    = $row['gcashref_number'];
         }
 
-        // Send email
+        // Email content
         $subject = "Your Appointment is Approved";
         $body = "Hello $clientName,<br><br>
-                 Your appointment on $bookDate has been <b>approved</b>.<br>
-                 Reference number: $APP_ID<br><br>
-                 Thank you!";
+                 Your Table appointment on <b>$bookDate</b> has been approved.<br>
+                 GCash Reference Number: <b>$gcashRef</b><br><br>
+                 Thank you for booking with us!";
 
+        // Send email
         $sent = sendEmail($clientEmail, $subject, $body);
 
         if($sent){

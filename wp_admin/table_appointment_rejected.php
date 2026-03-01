@@ -154,7 +154,7 @@ $stmt->close();
 
 <?php 
 @include "includes/footer.php";
-@include "includes/appointment_modal.php"; 
+@include "includes/table_appointment_modal.php"; 
 ?>
 
 <script>
