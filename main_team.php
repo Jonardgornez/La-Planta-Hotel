@@ -20,7 +20,7 @@
                                     </div>
                                 </div>
                                 <div class="team-icon rounded-pill my-4 p-3">
-                                    <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="https://www.facebook.com/jerico.amada.2024"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
                                     <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
                                     <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
@@ -43,7 +43,7 @@
                                     </div>
                                 </div>
                                 <div class="team-icon rounded-pill my-4 p-3">
-                                    <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="https://www.facebook.com/janecamille.malalay.1"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=" "><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
                                     <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
                                     <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
@@ -66,7 +66,7 @@
                                     </div>
                                 </div>
                                 <div class="team-icon rounded-pill my-4 p-3">
-                                    <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="https://www.facebook.com/cadiz.sherwina"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
                                     <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
                                     <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
@@ -89,7 +89,7 @@
                                     </div>
                                 </div>
                                 <div class="team-icon rounded-pill my-4 p-3">
-                                    <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="https://www.facebook.com/vincecabsvillanueva/"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
                                     <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
                                     <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>

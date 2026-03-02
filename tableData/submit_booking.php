@@ -13,26 +13,39 @@ if ($conn->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $booking_date = $_POST['booking_date'];
-    $booking_time = $_POST['booking_time'];
-    $number_of_people = $_POST['number_of_people'];
-    $price = $_POST['price'];
+    $name = $_POST['name'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $contact_number = $_POST['contact_number'] ?? '';
+    $booking_date = $_POST['booking_date'] ?? '';
+    $booking_time = $_POST['booking_time'] ?? '';
+    $number_of_people = $_POST['number_of_people'] ?? 0;
+    $price = $_POST['price'] ?? 0;
+
+    // Payment Reference Number
+    $gcashref_number = $_POST['gcashref_number'] ?? null;
+    $gcashref_number = trim((string)$gcashref_number);
+    if ($gcashref_number === '') {
+        $gcashref_number = null;
+    }
+
+    // Force app_status to 1
+    $app_status = 1;
 
     // ==========================
     // FILE UPLOAD
     // ==========================
     $target_dir = "uploads/";
-    
-    // Create folder if not exists
+
     if (!is_dir($target_dir)) {
         mkdir($target_dir, 0777, true);
     }
 
+    if (!isset($_FILES["fileUpload"]) || $_FILES["fileUpload"]["error"] !== UPLOAD_ERR_OK) {
+        die("File upload failed. Please try again.");
+    }
+
     $file_name = $_FILES["fileUpload"]["name"];
     $file_tmp = $_FILES["fileUpload"]["tmp_name"];
-    $file_size = $_FILES["fileUpload"]["size"];
     $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
 
     $allowed = array("jpg", "jpeg", "png", "pdf");
@@ -41,7 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Invalid file type. Only JPG, PNG, and PDF allowed.");
     }
 
-    // Rename file to prevent duplicate
     $new_file_name = time() . "_" . uniqid() . "." . $file_ext;
     $target_file = $target_dir . $new_file_name;
 
@@ -53,17 +65,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // INSERT INTO DATABASE
     // ==========================
     $stmt = $conn->prepare("INSERT INTO table_appointment 
-        (name, email, booking_date, booking_time, number_of_people, price, file_upload) 
-        VALUES (?, ?, ?, ?, ?, ?, ?)");
+        (name, email, contact_number, booking_date, booking_time, number_of_people, price, file_upload, app_status, gcashref_number) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $stmt->bind_param("ssssids", 
-        $name, 
-        $email, 
-        $booking_date, 
-        $booking_time, 
-        $number_of_people, 
-        $price, 
-        $target_file
+    $stmt->bind_param(
+        "sssssidsis",
+        $name,
+        $email,
+        $contact_number,
+        $booking_date,
+        $booking_time,
+        $number_of_people,
+        $price,
+        $target_file,
+        $app_status,
+        $gcashref_number
     );
 
     if ($stmt->execute()) {
