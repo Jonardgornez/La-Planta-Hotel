@@ -95,12 +95,16 @@ while($row = $result->fetch_assoc()){
 <td><?=$row['gcashref_number'] ?: '-';?></td>
 <td><?=$row['created_at'];?></td>
 <td>
-  <div class="btn-group">
-    <button data-appid="<?=$row['id'];?>" 
+  <div class="btn-group" >
+    <button style="margin-right: 5px;"
+    data-appid="<?=$row['id'];?>" 
         onclick="appCompleted(this);" 
         class="btn btn-primary btn-sm">
         Complete
     </button>
+     <a href="table_appointment_infomation.php?id=<?= $row['id']; ?>" class="btn btn-success btn-sm" data-jario="tooltip" data-placement="top" title="FULL INFORMATION">
+                            <span class="fa fa-eye"></span>
+                        </a>
   </div>
 </td>
 </tr>

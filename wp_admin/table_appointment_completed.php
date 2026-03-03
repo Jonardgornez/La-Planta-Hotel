@@ -81,10 +81,9 @@ if($stmt->execute()){
       <span class="fa fa-print"></span>
     </button>
 
-    <a href="table_appointment_infomation.php?appointment_information=<?=$row['id'];?>" 
-       class="btn btn-success btn-sm">
-       <span class="fa fa-eye"></span>
-    </a>
+   <a href="table_appointment_infomation.php?id=<?= $row['id']; ?>" class="btn btn-success btn-sm" data-jario="tooltip" data-placement="top" title="FULL INFORMATION">
+    <span class="fa fa-eye"></span></a>
+    
   </div>
 </td>
 </tr>
