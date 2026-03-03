@@ -45,8 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $file_name = $_FILES["fileUpload"]["name"];
-    $file_tmp = $_FILES["fileUpload"]["tmp_name"];
-    $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+    $file_tmp  = $_FILES["fileUpload"]["tmp_name"];
+    $file_ext  = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
 
     $allowed = array("jpg", "jpeg", "png", "pdf");
 
@@ -83,6 +83,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     );
 
     if ($stmt->execute()) {
+
+        // ✅ NEW: get the newly inserted booking id
+        $new_id = $conn->insert_id;
+
         echo "
         <!DOCTYPE html>
         <html>
@@ -94,16 +98,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Swal.fire({
                     icon: 'success',
                     title: 'Booking Successful!',
-                    text: 'Your table has been reserved successfully.',
+                    text: 'Opening your receipt for printing...',
                     confirmButtonColor: '#3cbeee'
                 }).then(() => {
+
+                    // ✅ NEW: open receipt PDF in a NEW TAB
+                    window.open('table_receipt_pdf.php?id={$new_id}', '_blank');
+
+                    // go back to homepage (optional)
                     window.location.href = '../index.php';
                 });
             </script>
         </body>
         </html>
         ";
+
     } else {
+
         echo "
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script>
