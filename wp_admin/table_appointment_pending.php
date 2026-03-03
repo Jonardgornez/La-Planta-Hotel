@@ -284,7 +284,7 @@ $stmt->close();
 
     function myFunction(self){
         var appid = self.getAttribute("data-appid");
-        window.open("payment_history_print.php?appid=" + appid, "", "width=700,height=500");
+        window.open("table_payment_history_print.php?appid=" + appid, "", "width=700,height=500");
     }
 </script>
 

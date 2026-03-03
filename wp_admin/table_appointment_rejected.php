@@ -109,11 +109,9 @@ if($stmt->execute()){
   <td>
     <div class="btn-group">
 
-      <button data-appid="<?= $row['id']; ?>"
-              onclick="printHistory(this);"
-              class="btn btn-warning btn-sm">
-        <span class="fa fa-print"></span>
-      </button>
+      <button data-appid="<?=$row['id'];?>" onclick="myFunction(this);" class="btn btn-warning btn-sm text-white" data-jario="tooltip" data-placement="top" title="PAYMENT HISTORY">
+                            <span class="fa fa-print"></span>
+                        </button>
 
       <button data-appid="<?= $row['id']; ?>"
               data-balance="<?= $row['price']; ?>"
@@ -169,10 +167,7 @@ function openPayment(self){
   $("#payment_modal").modal("show");
 }
 
-function printHistory(self){
-  var appid = self.getAttribute("data-appid");
-  window.open("payment_history_print.php?appid="+appid,"","width=700,height=500");
-}
+
 
 $(document).on('keyup','#payment',function(){
   var pay_balance = parseFloat($("#pay_balance").val()) || 0;
@@ -188,6 +183,11 @@ $(document).on('keyup','#payment',function(){
   }
 });
 
+
+ function myFunction(self){
+        var appid = self.getAttribute("data-appid");
+        window.open("table_payment_history_print.php?appid=" + appid, "", "width=700,height=500");
+    }
 </script>
 
 </body>

@@ -181,6 +181,11 @@ if(!empty($_GET['appointment_information'])){
                       </td>
                   </tr>
                 </table>
+                 <div class="card-footer text-muted">
+                <a href="javascript:history.back()" class="btn btn-secondary btn-sm">
+                  <i class="fa fa-arrow-left"></i> Back
+                </a>
+              </div>
               </div><!-- /.card-body -->
               <div class="card-footer text-muted">
               <div class="float-right">

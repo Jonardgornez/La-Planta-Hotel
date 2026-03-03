@@ -96,7 +96,10 @@ while($row = $result->fetch_assoc()){
 <td><?=$row['created_at'];?></td>
 <td>
   <div class="btn-group" >
-    <button style="margin-right: 5px;"
+      <button data-appid="<?=$row['id'];?>" onclick="myFunction(this);" class="btn btn-warning btn-sm text-white" data-jario="tooltip" data-placement="top" title="PAYMENT HISTORY">
+                            <span class="fa fa-print"></span>
+                        </button>
+    <button style="margin-inline: 5px;"
     data-appid="<?=$row['id'];?>" 
         onclick="appCompleted(this);" 
         class="btn btn-primary btn-sm">
@@ -105,6 +108,7 @@ while($row = $result->fetch_assoc()){
      <a href="table_appointment_infomation.php?id=<?= $row['id']; ?>" class="btn btn-success btn-sm" data-jario="tooltip" data-placement="top" title="FULL INFORMATION">
                             <span class="fa fa-eye"></span>
                         </a>
+                        
   </div>
 </td>
 </tr>
@@ -136,6 +140,11 @@ function appCompleted(self){
     document.getElementById("appcompleted_appid").value = appid;
     $("#complete_modal").modal("show");
 }
+
+ function myFunction(self){
+        var appid = self.getAttribute("data-appid");
+        window.open("table_payment_history_print.php?appid=" + appid, "", "width=700,height=500");
+    }
 </script>
 
 </body>

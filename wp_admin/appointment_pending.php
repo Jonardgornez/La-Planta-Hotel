@@ -131,8 +131,11 @@
                           <td><?=$row['PAYMENT_REF_NO']; ?></td>
                           <td align="right">
                           <div class="btn-group">
+
                           <button data-appid="<?=$row['APP_ID'];?>" onclick="myFunction(this);" class="btn btn-warning btn-sm text-white" data-jario="tooltip" data-placement="top" title="PAYMENT HISTORY"> <span class="fa fa-print"></span></button>
+
 						              <button data-appid="<?=$row['APP_ID'];?>" data-balance="<?=$balance;?>" data-cotid="<?=$row['COT_ID'];?>" onclick="appPayment(this);" class="btn btn-info btn-sm" data-jario="tooltip" data-placement="top" title="PAYMENT" <?=$YES_APPROVED;?>> <span class="fa fa-money-bill"></span></button>
+
                           <a href="appointment_information.php?appointment_information=<?=$row['APP_ID'];?>" class="btn btn-success btn-sm" data-jario="tooltip" data-placement="top" title="FULL INFORMATION"> <span class="fa fa-eye"></span></a>
                           <button data-appid="<?=$row['APP_ID'];?>" onclick="appAproved(this);" class="btn btn-primary btn-sm" data-jario="tooltip" data-placement="top" title="APPROVED" <?=$YES_APPROVED;?>> <span class="fa fa-thumbs-up"></span></button>
                           <button data-appid="<?=$row['APP_ID']?>" onclick="appReject(this);" class="btn btn-danger text-white btn-sm" data-jario="tooltip" data-placement="top" title="REJECT" <?=$YES_REJECTED;?>> <span class="fa fa-thumbs-down"></span></button>

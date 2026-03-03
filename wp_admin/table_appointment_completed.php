@@ -77,9 +77,10 @@ if($stmt->execute()){
 <td><?=$row['created_at'];?></td>
 <td>
   <div class="btn-group">
-    <button data-appid="<?=$row['id'];?>" onclick="myFunction(this);" class="btn btn-warning btn-sm">
-      <span class="fa fa-print"></span>
-    </button>
+
+    <button data-appid="<?=$row['id'];?>" onclick="myFunction(this);" class="btn btn-warning btn-sm text-white" data-jario="tooltip" data-placement="top" title="PAYMENT HISTORY">
+                            <span class="fa fa-print"></span>
+                        </button>
 
    <a href="table_appointment_infomation.php?id=<?= $row['id']; ?>" class="btn btn-success btn-sm" data-jario="tooltip" data-placement="top" title="FULL INFORMATION">
     <span class="fa fa-eye"></span></a>
@@ -110,10 +111,10 @@ if($stmt->execute()){
 <?php @include "includes/footer.php";?>
 
 <script>
-function myFunction(self){
-    var appid = self.getAttribute("data-appid");
-    window.open("payment_history_print.php?appid="+appid, "", "width=700,height=500");
-}
+ function myFunction(self){
+        var appid = self.getAttribute("data-appid");
+        window.open("table_payment_history_print.php?appid=" + appid, "", "width=700,height=500");
+    }
 </script>
 
 </body>
