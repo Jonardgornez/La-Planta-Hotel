@@ -117,7 +117,8 @@
                           <td><?=$cnt++; ?></td>
                           <td><?=$STATUS;?></td>
 						              <td style="font-size:10pt">
-                          <label for=""><a href="appointment_receipt.php?refnumber=<?=$row['AUTO_NUMBER'];?>" data-jario="tooltip" data-placement="top" title="PRINT RECEIPT">
+                            <!-- appointment_receipt.php?refnumber=<?=$row['AUTO_NUMBER'];?> -->
+                          <label for=""><a href="" data-jario="tooltip" data-placement="top" title="PRINT RECEIPT">
                               [<?=$row['AUTO_NUMBER']; ?>] <?=$row['LASTNAME'].', '.$row['FIRSTNAME'].' '.$row['MIDDLENAME'];?>
                             </a></label>
                           </td>
