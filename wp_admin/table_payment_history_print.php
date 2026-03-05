@@ -4,7 +4,7 @@ include "includes/header.php";
 $appid = isset($_GET['appid']) ? (int)$_GET['appid'] : 0;
 
 $stmt = $conn->prepare("
-    SELECT id, name, price, gcashref_number, booking_date
+    SELECT id, name, price, gcashref_number, booking_date, downpayment
     FROM table_appointment
     WHERE id = ?
 ");
@@ -20,9 +20,13 @@ $row = $result->fetch_assoc();
 $stmt->close();
 
 $price   = (float)$row['price'];
-$payment = 0.00;   
-$balance = $price; 
+$payment = (float)$row['downpayment']; 
+$balance = $price - $payment; 
+
 $gcash   = !empty($row['gcashref_number']) ? $row['gcashref_number'] : '-';
+
+/* Format the booking date */
+$bookingDate = date("F j, Y", strtotime($row['booking_date']));
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +90,7 @@ th, td{
   </td>
 </tr>
 <tr>
-  <td><b>Booking Date:</b> <?= htmlspecialchars($row['booking_date']); ?></td>
+  <td><b>Booking Date:</b> <?= htmlspecialchars($bookingDate); ?></td>
   <td>&nbsp;</td>
 </tr>
 </table>
@@ -97,7 +101,7 @@ th, td{
 <thead>
 <tr>
   <th>PRICE</th>
-  <th>PAYMENT</th>
+  <th>DOWNPAYMENT</th>
   <th>BALANCE</th>
   <th>GCASH REF. NO</th>
 </tr>

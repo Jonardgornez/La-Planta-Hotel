@@ -97,7 +97,7 @@
             <form autocomplete="off" class="form-horizontal needs-validation" method="POST" action="table_payment_process.php" enctype="multipart/form-data" novalidate>
           	<div class="modal-body">
                     <input type="text" id="pay_appid" name="APP_ID" required hidden>
-                    <input type="text" id="pay_cotid" name="PAY_COT_ID" required hidden>
+                    <!-- <input type="text" id="pay_cotid" name="PAY_COT_ID" required hidden> -->
 					
 					 <div class="col-md-12">
                         <div class="form-group">

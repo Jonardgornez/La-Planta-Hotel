@@ -129,8 +129,8 @@ if ($stmt->execute()) {
             }
 
             $price = $row['price'];
-            $payment = $row['price'];  // You can adjust if payment logic changes
-            $balance = $row['price'];  // Adjust if balance is different
+            $payment = $row['downpayment'];  // You can adjust if payment logic changes
+            $balance = $price - $payment; // Adjust if balance is different
             $name = $row['name'];
             $gcash = $row['gcashref_number'] ? $row['gcashref_number'] : '-';
 
@@ -149,9 +149,9 @@ if ($stmt->execute()) {
                         <button data-appid="<?=$row['id'];?>" onclick="myFunction(this);" class="btn btn-warning btn-sm text-white" data-jario="tooltip" data-placement="top" title="PAYMENT HISTORY">
                             <span class="fa fa-print"></span>
                         </button>
-                        <button data-appid="<?=$row['id'];?>" data-balance="<?=$balance;?>" onclick="appPayment(this);" class="btn btn-info btn-sm" data-jario="tooltip" data-placement="top" title="PAYMENT">
+                        <!-- <button data-appid="<?=$row['id'];?>" data-balance="<?=$balance;?>" onclick="appPayment(this);" class="btn btn-info btn-sm" data-jario="tooltip" data-placement="top" title="PAYMENT">
                             <span class="fa fa-money-bill"></span>
-                        </button>
+                        </button> -->
                         <a href="table_appointment_infomation.php?id=<?= $row['id']; ?>" class="btn btn-success btn-sm" data-jario="tooltip" data-placement="top" title="FULL INFORMATION">
                             <span class="fa fa-eye"></span>
                         </a>

@@ -81,6 +81,13 @@ while($row = $result->fetch_assoc()){
     }elseif($row['app_status']==4){
           $STATUS='<span class="badge badge-primary">Completed</span>';
     }
+   
+
+       $price = $row['price'];
+            $payment = $row['downpayment'];  // You can adjust if payment logic changes
+            $balance = $price - $payment; // Adjust if balance is different
+            $name = $row['name'];
+            $gcash = $row['gcashref_number'] ? $row['gcashref_number'] : '-';
 
 ?>
 <tr>
@@ -96,7 +103,8 @@ while($row = $result->fetch_assoc()){
 <td><?=$row['created_at'];?></td>
 <td>
   <div class="btn-group" >
-      <button data-appid="<?=$row['id'];?>" onclick="myFunction(this);" class="btn btn-warning btn-sm text-white" data-jario="tooltip" data-placement="top" title="PAYMENT HISTORY">
+      <button 
+      data-appid="<?=$row['id'];?>" onclick="myFunction(this);" class="btn btn-warning btn-sm text-white" data-jario="tooltip" data-placement="top" title="PAYMENT HISTORY">
                             <span class="fa fa-print"></span>
                         </button>
     <button style="margin-inline: 5px;"
@@ -105,6 +113,11 @@ while($row = $result->fetch_assoc()){
         class="btn btn-primary btn-sm">
         Complete
     </button>
+
+      <button style="margin-inline-end: 5px;"
+      data-appid="<?=$row['id'];?>" data-balance="<?=$balance;?>" onclick="appPayment(this);" class="btn btn-info btn-sm" data-jario="tooltip" data-placement="top" title="PAYMENT">
+                            <span class="fa fa-money-bill"></span>
+                        </button>
      <a href="table_appointment_infomation.php?id=<?= $row['id']; ?>" class="btn btn-success btn-sm" data-jario="tooltip" data-placement="top" title="FULL INFORMATION">
                             <span class="fa fa-eye"></span>
                         </a>
@@ -135,6 +148,29 @@ $stmt->close();
 <?php include "includes/footer.php"; ?>
 
 <script>
+   function appPayment(self) {
+      var appid = self.getAttribute("data-appid");
+      var balance = self.getAttribute("data-balance");
+      document.getElementById("pay_appid").value = appid;
+      document.getElementById("pay_balance").value = balance;
+      $("#payment_modal").modal("show");
+    }
+     $(document).on('keyup','#payment',function(){
+        var pay_balance = Number.parseFloat($("#pay_balance").val());
+        var payment = Number.parseFloat($("#payment").val());
+        var TotalBalance = 0;
+
+        $('#disabled').prop('disabled', true);
+        if(payment > pay_balance){
+            alert("Payment not greater than total balance");
+            $('#disabled').prop('disabled', true);
+        } else {
+            TotalBalance = pay_balance - payment;
+            document.getElementById("remain_balance").value = TotalBalance;
+            $('#disabled').prop('disabled', false);
+        }
+    });
+
 function appCompleted(self){
     var appid = self.getAttribute("data-appid");
     document.getElementById("appcompleted_appid").value = appid;

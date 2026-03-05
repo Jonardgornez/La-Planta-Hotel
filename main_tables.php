@@ -117,6 +117,11 @@
                 </div>
 
                 <div class="col-md-6">
+                  <label class="form-label">Downpayment *</label>
+                  <input type="number" name="downpayment" class="form-control" min="0" required>
+                </div>
+
+                <div class="col-md-6">
                     <label class="form-label">Upload Payment Screenshot *</label>
                     <input 
                         style="background:none;" 

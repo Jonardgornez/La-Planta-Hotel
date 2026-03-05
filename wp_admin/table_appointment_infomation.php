@@ -37,6 +37,17 @@ $created_at = !empty($row['created_at'])
   : "N/A";
 
 /* ===============================
+   PRICE / DOWNPAYMENT / BALANCE
+================================ */
+$priceValue       = (float)($row['price'] ?? 0);
+$downpaymentValue = (float)($row['downpayment'] ?? 0);
+
+$balanceValue = $priceValue - $downpaymentValue;
+if ($balanceValue < 0) {
+  $balanceValue = 0; // prevent negative balance
+}
+
+/* ===============================
    STATUS LABEL
 ================================ */
 switch ((int)$row['app_status']) {
@@ -146,7 +157,19 @@ $filePath = !empty($filename) ? ($base_upload_path . $filename) : "";
 
 <tr>
   <td>PRICE</td>
-  <td><?= number_format((float)$row['price'], 2); ?></td>
+  <td>₱ <?= number_format($priceValue, 2); ?></td>
+</tr>
+
+<!-- ✅ ADDED DOWNPAYMENT -->
+<tr>
+  <td>DOWNPAYMENT</td>
+  <td>₱ <?= number_format($downpaymentValue, 2); ?></td>
+</tr>
+
+<!-- ✅ ADDED BALANCE -->
+<tr>
+  <td>REMAINING BALANCE</td>
+  <td>₱ <?= number_format($balanceValue, 2); ?></td>
 </tr>
 
 <tr>

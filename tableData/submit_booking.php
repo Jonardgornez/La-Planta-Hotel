@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $booking_time = $_POST['booking_time'] ?? '';
     $number_of_people = $_POST['number_of_people'] ?? 0;
     $price = $_POST['price'] ?? 0;
+    $downpayment = $_POST['downpayment'] ?? 0;
 
     // Payment Reference Number
     $gcashref_number = $_POST['gcashref_number'] ?? null;
@@ -64,23 +65,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ==========================
     // INSERT INTO DATABASE
     // ==========================
-    $stmt = $conn->prepare("INSERT INTO table_appointment 
-        (name, email, contact_number, booking_date, booking_time, number_of_people, price, file_upload, app_status, gcashref_number) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO table_appointment 
+    (name, email, contact_number, booking_date, booking_time, number_of_people, price, downpayment, file_upload, app_status, gcashref_number) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     $stmt->bind_param(
-        "sssssidsis",
-        $name,
-        $email,
-        $contact_number,
-        $booking_date,
-        $booking_time,
-        $number_of_people,
-        $price,
-        $target_file,
-        $app_status,
-        $gcashref_number
-    );
+    "sssssiddsis",
+    $name,
+    $email,
+    $contact_number,
+    $booking_date,
+    $booking_time,
+    $number_of_people,
+    $price,
+    $downpayment,
+    $target_file,
+    $app_status,
+    $gcashref_number
+);
 
     if ($stmt->execute()) {
 

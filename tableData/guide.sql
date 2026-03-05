@@ -7,6 +7,8 @@ CREATE TABLE table_appointment (
     booking_time TIME NOT NULL,
     number_of_people INT NOT NULL,
     price DECIMAL(10,2) NOT NULL,
+    downpayment DECIMAL(10,2) DEFAULT 0.00,
+    remarks TEXT,
     file_upload VARCHAR(255) NOT NULL,
     app_status INT DEFAULT 1,
     gcashref_number VARCHAR(100),

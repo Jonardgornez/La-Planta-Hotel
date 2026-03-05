@@ -32,7 +32,6 @@ if (!$result || $result->num_rows == 0) {
 $row = $result->fetch_assoc();
 
 // ===== STATUS LABEL (COLORED) =====
-// UPDATED MAPPING:
 // 1 = Pending
 // 2 = Rejected
 // 3 = Approved
@@ -56,7 +55,20 @@ $name      = htmlspecialchars($row['name'] ?? '');
 $email     = htmlspecialchars($row['email'] ?? '');
 $contact   = htmlspecialchars($row['contact_number'] ?? '');
 $numPeople = (int)($row['number_of_people'] ?? 0);
-$price     = number_format((float)($row['price'] ?? 0), 2);
+
+$priceValue       = (float)($row['price'] ?? 0);
+$downpaymentValue = (float)($row['downpayment'] ?? 0);
+
+// prevent negative balance (optional but recommended)
+$rawBalance = $priceValue - $downpaymentValue;
+if ($rawBalance < 0) {
+    $rawBalance = 0;
+}
+
+$price       = number_format($priceValue, 2);
+$downpayment = number_format($downpaymentValue, 2);
+$balance     = number_format($rawBalance, 2);
+
 $gcashRef  = htmlspecialchars((string)($row['gcashref_number'] ?? ''));
 
 // ===== TCPDF CUSTOM CLASS (FOOTER) =====
@@ -71,7 +83,7 @@ class MYPDF extends TCPDF {
 $pdf = new MYPDF('P', 'mm', 'A4', true, 'UTF-8', false);
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Resort');
-$pdf->SetTitle('Table Booking Receipt #' . $row['id']);
+$pdf->SetTitle('Table Booking Receipt #' . (int)$row['id']);
 
 $pdf->setPrintHeader(false);
 $pdf->setPrintFooter(true);
@@ -163,6 +175,14 @@ $contents = '
   <tr>
     <td><b>PRICE:</b></td>
     <td>₱ ' . $price . '</td>
+  </tr>
+  <tr>
+    <td><b>DOWNPAYMENT:</b></td>
+    <td>₱ ' . $downpayment . '</td>
+  </tr>
+  <tr>
+    <td><b>REMAINING BALANCE:</b></td>
+    <td>₱ ' . $balance . '</td>
   </tr>
   <tr>
     <td><b>GCASH REF #:</b></td>
