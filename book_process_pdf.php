@@ -54,7 +54,7 @@ class MYPDF extends TCPDF {
     public function Header() {
         $this->SetAutoPageBreak(false, 0);
 
-        $logoPath = __DIR__ . '/dist/img/Logo.png';
+        $logoPath = __DIR__ . '/dist/img/laplanta.jpg';
         if (file_exists($logoPath)) {
             $this->Image($logoPath, 25, 50, 160);
         }
@@ -81,7 +81,7 @@ $pdf->AddPage();
 
 
 // WATERMARK
-$watermarkPath = __DIR__ . '/dist/img/sprrlogo.png';
+$watermarkPath = __DIR__ . '/dist/img/laplanta.jpg';
 if (file_exists($watermarkPath)) {
     $pdf->SetAlpha(0.1);
     $pdf->Image($watermarkPath, 25, 40, 150);
@@ -92,7 +92,7 @@ if (file_exists($watermarkPath)) {
 // START CONTENT
 $pdf->SetY(20);
 
-$logoHtmlPath = __DIR__ . '/dist/img/sprrlogo.png';
+$logoHtmlPath = __DIR__ . '/dist/img/laplanta.jpg';
 
 $contents = '
 <table width="100%" border="0" cellpadding="2">

@@ -95,8 +95,8 @@ $pdf->AddPage();
 //
 // PATHS (dist is outside tableData)
 //
-$watermarkPath = realpath(__DIR__ . '/../dist/img/sprrlogo.png');
-$logoPath      = realpath(__DIR__ . '/../dist/img/Logo.png');
+$watermarkPath = realpath(__DIR__ . '/../dist/img/laplanta.jpg');
+$logoPath      = realpath(__DIR__ . '/../dist/img/laplanta.jpg');
 
 // ===== WATERMARK =====
 if ($watermarkPath && file_exists($watermarkPath)) {
